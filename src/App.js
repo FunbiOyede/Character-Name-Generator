@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Inputs from './components/Inputs';
 import Button from './components/Button';
-import Data from './components/Data'
+import Name from './components/Names';
+import GenerateName from './helpers/Generate';
+import Data , {femaleNames} from '../src/helpers/Data';
 import './App.css';
 
 class App extends Component {
@@ -10,11 +12,6 @@ class App extends Component {
     
   }
  
-
-   
-  
-
-
 
   // handling gender
   handleGender = (e) =>{
@@ -42,8 +39,22 @@ class App extends Component {
   })
  }
 
+ 
+ 
+  
+
  fecthName = (gosh) =>{
-  this.DataFunction(gosh);
+  if(gosh === "Male")
+  {
+    this.setState({
+      generatedName:GenerateName(Data)
+    })
+  
+  }else{
+   this.setState({
+     generatedName:GenerateName(femaleNames)
+   })
+}
  }
 
 
@@ -54,13 +65,14 @@ class App extends Component {
     return (
       <div className="App">
         <Inputs
-         handleGender={this.handleGender} 
+         handleGender={this.handleGender}
          handlePersonality={this.handlePersonality}
          handleState={this.handleState}
          handlePowerLevel={this.handlePowerLevel}
         />
         <Button fecthName={() => this.fecthName(this.state.gender)}/>
-        <Data DataFunction={this.DataFunction}/>
+        {/* <Data generatedName={this.state.generatedName}/> */}
+        <Name generatedName={this.state.generatedName}/>
       </div>
     );
   }
