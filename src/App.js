@@ -44,6 +44,7 @@ class App extends Component {
   
 
  fecthName = (gosh) =>{
+  
   if(gosh === "Male")
   {
     this.setState({
