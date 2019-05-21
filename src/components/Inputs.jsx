@@ -43,7 +43,7 @@ export class Inputs extends Component {
                 
                 
                     <label>State</label><br/>
-                    <select onChange={this.props.handleState}>
+                    <select onChange={this.props.handleState} required>
                         <option></option>
                         <option value="Good">Good</option>
                         <option value="Bad">Bad</option>

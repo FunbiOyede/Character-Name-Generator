@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Inputs from '../components/Inputs';
 import Button from '../components/Button';
 import Name from '../components/Names';
+// import Error from '../components/Error'
 import GenerateName from '../generators/Generate';
 import Data , {femaleNames} from '../generators/Data';
 import './App.css';
@@ -12,7 +13,9 @@ class App extends Component {
     gender:"",
     personality:"",
     humanState:"",
-    powerLevel:""
+    powerLevel:"",
+    isState:false,
+    errorMessage:""
   }
  
 
@@ -47,18 +50,30 @@ class App extends Component {
   
 
  fecthName = (gosh) =>{
-  
-  if(gosh === "Male")
-  {
+  // let sta = this.state.isState;
+  //    this.setState({
+  //     isState:!sta
+  //    })
+
+    if(gosh === ""){
+     this.setState({
+       isState:true
+     })
+    }else{
+      if(gosh === "Male")
+    {
+      this.setState({
+        generatedName:GenerateName(Data)
+      })
+    
+      }else{
     this.setState({
-      generatedName:GenerateName(Data)
+      generatedName:GenerateName(femaleNames)
     })
-  
-  }else{
-   this.setState({
-     generatedName:GenerateName(femaleNames)
-   })
-}
+  }
+    }
+    
+
  }
 
 
@@ -75,8 +90,10 @@ class App extends Component {
          handlePowerLevel={this.handlePowerLevel}
         />
         <Button fecthName={() => this.fecthName(this.state.gender)}/>
-        {/* <Data generatedName={this.state.generatedName}/> */}
-        <Name generatedName={this.state.generatedName}/>
+        {
+          this.state.isState ?  <Name generatedName={this.state.generatedName}/> :null
+        }
+      
       </div>
     );
   }
