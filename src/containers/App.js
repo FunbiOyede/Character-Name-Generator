@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import Inputs from './components/Inputs';
-import Button from './components/Button';
-import Name from './components/Names';
-import GenerateName from './helpers/Generate';
-import Data , {femaleNames} from '../src/helpers/Data';
+import Inputs from '../components/Inputs';
+import Button from '../components/Button';
+import Name from '../components/Names';
+import GenerateName from '../generators/Generate';
+import Data , {femaleNames} from '../generators/Data';
 import './App.css';
 
 class App extends Component {
 
   state = {
-    
+    gender:"",
+    personality:"",
+    humanState:"",
+    powerLevel:""
   }
  
 

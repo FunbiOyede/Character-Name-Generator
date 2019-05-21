@@ -20,7 +20,8 @@ const malesNames = [
     "Bronx",
     "Jack Of Hearts",
     "Bronco Bill",
-    "Adam Warlock"
+    "Adam Warlock",
+    "Lucifer Morning Star"
   ]
 
 
