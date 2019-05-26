@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import Inputs from '../components/Inputs';
 import Button from '../components/Button';
 import Name from '../components/Names';
-// import Error from '../components/Error'
 import GenerateName from '../generators/Generate';
 import Data , {femaleNames} from '../generators/Data';
 import './App.css';
-
+import Header from '../components/Header'
+import Radium, {StyleRoot} from 'radium';
+//using StyleRoot for accessing advance features from radium like media queries
 class App extends Component {
 
   state = {
     gender:"",
     personality:"",
     humanState:"",
-    powerLevel:"",
-    isState:false,
-    errorMessage:""
+    powerLevel:""
   }
  
 
@@ -49,32 +48,27 @@ class App extends Component {
  
   
 
- fecthName = (gosh) =>{
-  // let sta = this.state.isState;
-  //    this.setState({
-  //     isState:!sta
-  //    })
-
-    if(gosh === ""){
-     this.setState({
-       isState:true
-     })
-    }else{
-      if(gosh === "Male")
-    {
+fecthName = (gender) =>{
+ 
+  if(gender === ""){
+    this.setState({
+      generatedName:"You dint input anything"
+    })
+  }
+  else{
+    if(gender === "Male"){
       this.setState({
         generatedName:GenerateName(Data)
       })
-    
-      }else{
-    this.setState({
-      generatedName:GenerateName(femaleNames)
-    })
-  }
     }
-    
-
- }
+    else{
+      this.setState({
+        generatedName:GenerateName(femaleNames)
+      })
+    }
+  }
+     
+}
 
 
  
@@ -82,21 +76,21 @@ class App extends Component {
 
   render() {  
     return (
-      <div className="App">
-        <Inputs
-         handleGender={this.handleGender}
-         handlePersonality={this.handlePersonality}
-         handleState={this.handleState}
-         handlePowerLevel={this.handlePowerLevel}
-        />
-        <Button fecthName={() => this.fecthName(this.state.gender)}/>
-        {
-          this.state.isState ?  <Name generatedName={this.state.generatedName}/> :null
-        }
-      
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <Header />
+          <Inputs
+          handleGender={this.handleGender}
+          handlePersonality={this.handlePersonality}
+          handleState={this.handleState}
+          handlePowerLevel={this.handlePowerLevel}
+          />
+          <Button fecthName={() => this.fecthName(this.state.gender)}/>
+          <Name generatedName={this.state.generatedName}/>
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App);
