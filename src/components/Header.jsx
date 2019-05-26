@@ -7,11 +7,12 @@ const Header = () =>{
         color:'#fff',
         marginTop:'0px',
         height:'64px',
-        paddingTop:'15px',
         float:'left',
+        paddingTop:'20px',
         width:'100%',
         fontSize: '24px',
-        fontWeight: '400'
+        fontWeight: '400',
+        marginBottom:'50px'
     
     }
     return(

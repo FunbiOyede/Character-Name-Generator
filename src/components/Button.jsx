@@ -7,14 +7,14 @@ import Radium from 'radium';
     padding:"12px 30px 11px",
     borderRadius:"4px",
     outline:"none",
-    marginTop:"10px",
+    marginTop:"15px",
     color:"#fff",
-    border:"2px solid black",
-    backgroundColor:"black",
+    border:"2px solid #1a73e8",
+    backgroundColor:"#1a73e8",
     //implementing radium
     ":hover":{
-      backgroundColor:"#1a73e8",
-      border:"2px solid #1a73e8",
+      backgroundColor:"black",
+      border:"2px solid black",
       cursor:"pointer"
     }
   }

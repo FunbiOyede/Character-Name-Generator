@@ -16,9 +16,9 @@ export class Inputs extends Component {
 
   
     return (
-        <div>
-                   <div>
-                        <label>Gender</label><br/>
+        <div style={{margin:'0 auto'}}>
+                   <div style={{margin:'10px 0'}}>
+                        <p>Gender</p>
                         <select  style={InputStyle} onChange={this.props.handleGender} required>
                             <option></option>
                             <option value="Male">Male</option>
@@ -27,7 +27,7 @@ export class Inputs extends Component {
                         </div>
 
                         <div>
-                    <label>Personality</label><br/>
+                    <p>Personality</p>
                     <select style={InputStyle} onChange={this.props.handlePersonality} required>
                         <option></option>
                         <option value="Mastermind">Mastermind</option>
@@ -38,7 +38,7 @@ export class Inputs extends Component {
                         </div>
 
                         <div>
-                <label >Power level</label><br/>
+                <p >Power level</p>
                 <select style={InputStyle} onChange={this.props.handlePowerLevel} required>
                     <option></option>
                     <option value="1">1</option>
@@ -51,13 +51,14 @@ export class Inputs extends Component {
                     </div>
                 
                 
-                
-                     <label >State</label><br/>
+                <div>
+                     <p >State</p>
                      <select style={InputStyle} onChange={this.props.handleState} required>
                          <option></option>
                          <option value="Good">Good</option>
                          <option value="Bad">Bad</option>
                      </select><br/>
+                     </div>
         </div>
     )
   }
